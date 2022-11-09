@@ -25,8 +25,8 @@ ostream& operator << (ostream& os, const polynomial& p) {
 }
 
 int main() {
-	vector<double> c1 = { 2.39,7.42,4.32,7.26 };
-	int d1 = 4;
+	vector<double> c1 = { 2.39,7.42,4.32 };
+	int d1 = 3;
 	polynomial p1(d1, c1);
 	cout << "The degree of given polynomial is " << p1.get_deg() << " and the coefficients are " << "\n" << p1 << endl;
 	return 0;
