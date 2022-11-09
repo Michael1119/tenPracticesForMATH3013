@@ -3,29 +3,31 @@
 
 using namespace std;
 
-class Polynomial {
-protected:
-	int degree{}; //In-class initialization
-	vector<double> coefficient{};
-
+class polynomial {
+private:
+	int deg;
+	vector<double> coef;
 public:
-	Polynomial() {};
-	Polynomial(int deg, vector<double> coef) : degree(deg), coefficient(coef) {}
-	~Polynomial() {};
-	//Output 
-	friend ostream& operator << (ostream& out, const Polynomial& express)
-	{
-		for (auto i : express.coefficient) {
-			out << i << " ";
-		}
-		return out;
-	}
+	polynomial() {};
+	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {} // initialize deg and coef
+	~polynomial() {};
+	int get_deg() {return deg;};
+	// friend is required for free function to access the private value p.coef
+	friend ostream& operator << (ostream& os, const polynomial& p);
 };
+
+// free function because ostream& is not a member of the class polynomial
+ostream& operator << (ostream& os, const polynomial& p) {
+	for (auto i : p.coef) {
+		os << i << " ";
+	}
+	return os;
+}
+
 int main() {
-	vector<double> c1 = { 46.12,12.32,12.78 }; //Just for example
-	int d1 = 3;
-	Polynomial p1(d1, c1);
-	cout <<"The degree of given polynomial is "<<d1<<
-		" and the coefficient is "<<"\n" << p1 << endl;
+	vector<double> c1 = { 2.39,7.42,4.32,7.26 };
+	int d1 = 4;
+	polynomial p1(d1, c1);
+	cout << "The degree of given polynomial is " << p1.get_deg() << " and the coefficients are " << "\n" << p1 << endl;
 	return 0;
 }
