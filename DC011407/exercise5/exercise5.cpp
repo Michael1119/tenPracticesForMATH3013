@@ -8,8 +8,6 @@ class stack {
 private:
     size_t capacity = 20;
     vector<T> mydata;
-    bool full() const noexcept {return mydata.size() == capacity;}
-    bool empty() const noexcept {return mydata.size() == 0;}
 public:
     stack() {mydata.reserve(capacity);}
     ~stack() {}
@@ -32,6 +30,8 @@ public:
     }
     void clear() {mydata.clear();}
     size_t size() {return mydata.size();}
+    bool full() const noexcept {return mydata.size() == capacity;}
+    bool empty() const noexcept {return mydata.size() == 0;}
 };
 
 int main() {
