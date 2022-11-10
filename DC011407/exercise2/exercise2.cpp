@@ -8,7 +8,7 @@ private:
 	int deg;
 	vector<double> coef;
 public:
-	polynomial() {};
+	polynomial() : deg(0) {};
 	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {} // initialize deg and coef
 	~polynomial() {};
 	int get_deg() {return deg;};

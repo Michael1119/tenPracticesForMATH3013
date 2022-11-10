@@ -6,11 +6,11 @@ using namespace std;
 
 class polynomial {
 private:
-	int deg = 0;
+	int deg;
 	vector<double> coef;
 public:
-	polynomial() {}
-	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {} // initialize deg and coef
+	polynomial() : deg(0) {}
+	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {} 
 	polynomial(const polynomial& p) : deg(p.deg), coef(p.coef) {} // copy constructor
 	~polynomial() {}
 	int get_deg() {return deg;}
@@ -44,6 +44,7 @@ int main() {
 	polynomial p1(d1, c1);
 	cout << "The degree of given polynomial is " << p1.get_deg() << " and the coefficients are " << "\n" << p1 << endl;
 	polynomial p2;
+	cout << p2.get_deg() << "\n" << p2 << endl;
 	p2 = f(1.0, 2.0, 3.0);
     return 0;
 }
