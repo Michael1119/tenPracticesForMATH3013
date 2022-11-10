@@ -10,7 +10,9 @@ private:
 	vector<double> coef;
 public:
 	polynomial() : deg(0) {}
-	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {} 
+	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {
+		assert(deg == coef.size()-1);
+	}
 	polynomial(const polynomial& p) : deg(p.deg), coef(p.coef) {} // copy constructor
 	~polynomial() {}
 	int get_deg() {return deg;}
@@ -39,12 +41,11 @@ polynomial f(double c2, double c1, double c0) {
 }
 
 int main() {
-	vector<double> c1 = { 2.39,7.42,4.32 };
 	int d1 = 2;
+	vector<double> c1 = { 2.39,7.42,4.32 };
 	polynomial p1(d1, c1);
 	cout << "The degree of given polynomial is " << p1.get_deg() << " and the coefficients are " << "\n" << p1 << endl;
 	polynomial p2;
-	cout << p2.get_deg() << "\n" << p2 << endl;
 	p2 = f(1.0, 2.0, 3.0);
     return 0;
 }
