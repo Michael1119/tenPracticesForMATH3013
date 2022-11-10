@@ -15,14 +15,16 @@ public:
 		assert(deg == coef.size() - 1);
 	}
 	~polynomial() {}
-	// copy constructor
-	polynomial(const polynomial& p) : deg(p.deg), coef(p.coef) {}
-	// move assignment operator
-    polynomial& operator = (polynomial&& src) {
-            assert(deg == 0 || deg == src.deg);
-            swap(coef, src.coef);
-            cout << "ok this works" << endl;
-            return *this;
+	// constructor for initializer list
+    polynomial(initializer_list<double> j) {
+        coef.assign(j.begin(), j.end());
+        deg = j.size() - 1;
+    }
+    // assignment operator for initializer list
+    polynomial& operator = (initializer_list<double> j) {
+        coef.assign(j.begin(), j.end());
+        deg = j.size() - 1;
+        return *this;
     }
 	// friend is required for free function to access the private value p.coef
 	friend ostream& operator << (ostream& os, const polynomial& p);
@@ -38,13 +40,9 @@ ostream& operator << (ostream& os, const polynomial& p) {
 	return os;
 }
 
-polynomial f(double c2, double c1, double c0) {
-    vector<double> coef = { c0,c1,c2 };
-    return polynomial(2, coef);
-}
-
 int main() {
-	polynomial p1;
-	p1 = f(1.0, 2.0, 3.0);
-    return 0;
+	polynomial p1{ 4.03,4.77,9.62 };
+    polynomial p2 = { 8.07,1.63,5.08,3.94 };
+    cout << p1.get_deg() << "\n" << p1 << endl;
+    cout << p2.get_deg() << "\n" << p2 << endl;
 }
