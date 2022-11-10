@@ -39,7 +39,7 @@ ostream& operator << (ostream& os, const polynomial& p) {
 }
 
 polynomial f(double c2, double c1, double c0) {
-    vector<double> coef = { c0,c1,c2 };
+    vector<double> coef = {c0, c1, c2};
     return polynomial(2, coef);
 }
 

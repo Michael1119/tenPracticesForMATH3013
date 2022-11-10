@@ -41,8 +41,8 @@ ostream& operator << (ostream& os, const polynomial& p) {
 }
 
 int main() {
-	polynomial p1{ 4.03,4.77,9.62 };
-    polynomial p2 = { 8.07,1.63,5.08,3.94 };
+	polynomial p1{4.03, 4.77, 9.62};
+    polynomial p2 = {8.07, 1.63, 5.08, 3.94};
     cout << p1.get_deg() << "\n" << p1 << endl;
     cout << p2.get_deg() << "\n" << p2 << endl;
 }

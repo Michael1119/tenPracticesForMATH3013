@@ -11,7 +11,7 @@ private:
 public:
 	polynomial() : deg(0) {};
 	polynomial(int degree, vector<double> coefficient) : deg(degree), coef(coefficient) {
-		assert(deg == coef.size()-1);
+		assert(deg == coef.size() - 1);
 	}
 	~polynomial() {};
 	// friend is required for free function to access the private value p.coef
@@ -30,7 +30,7 @@ ostream& operator << (ostream& os, const polynomial& p) {
 
 int main() {
 	int d1 = 2;
-	vector<double> c1 = { 2.39,7.42,4.32 };
+	vector<double> c1 = {2.39, 7.42, 4.32};
 	polynomial p1(d1, c1);
 	cout << p1.get_deg() << "\n" << p1 << endl;
 	return 0;
