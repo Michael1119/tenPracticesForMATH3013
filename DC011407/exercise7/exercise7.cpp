@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 namespace Michael {
     class odd_iterator {
     private:
@@ -31,6 +29,23 @@ namespace Michael {
     };
 }
 
+using namespace std;
+using namespace Michael;
+
 int main() {
+    odd_iterator a;
+    cout << *a << endl; // 1
+
+    odd_iterator b(3);
+    cout << *b << endl; // 3
+
+    odd_iterator c(b);
+    ++c;
+    cout << *c << endl; // 5
+    cout << (c != b) << endl; // 1
+    c = b;
+    cout << *c << endl; // 3
+    cout << (c == b) << endl; // 1
+
     return 0;
 }

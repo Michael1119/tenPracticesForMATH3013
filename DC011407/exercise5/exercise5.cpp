@@ -41,7 +41,7 @@ int main() {
     Michael::stack<int> s;
     for (int i = 1; i <= 10;) {
         s.push(i);
-        i+=1;
+        i += 1;
     }
     cout << s.size() << endl;
     cout << s.full() << endl;
